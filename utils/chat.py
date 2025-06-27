@@ -2,6 +2,17 @@
 import streamlit as st
 import os
 import requests
+from ibm_watson_machine_learning.foundation_models import Model
+
+model = Model(
+    model_id="ibm/granite-13b-instruct-v1",
+    credentials={
+        "apikey": "YOUR_API_KEY",
+        "url": "https://us-south.ml.cloud.ibm.com/ml/v1/text/chat?"
+    },
+    project_id="YOUR_PROJECT_ID"
+)
+print(model.generate("What causes headaches?"))
 
 def call_ibm_granite(prompt):
     api_key = st.secrets["IBM_API_KEY"]
