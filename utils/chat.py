@@ -5,7 +5,7 @@ import requests
 
 def call_ibm_granite(prompt):
     api_key = st.secrets("IBM_API_KEY")
-    url = "https://private.us-south.ml.cloud.ibm.com"
+    url = "https://us-south.ml.cloud.ibm.com"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}"
