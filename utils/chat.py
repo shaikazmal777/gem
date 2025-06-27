@@ -12,7 +12,7 @@ def call_ibm_granite(prompt):
     }
     payload = {
         "prompt": prompt,
-        "model": "granite-13b-instruct-v2"
+        "model": "granite-3-3-8b-instruct"
     }
     try:
         response = requests.post(url, json=payload, headers=headers)
