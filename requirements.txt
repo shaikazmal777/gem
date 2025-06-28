@@ -3,4 +3,3 @@ pandas
 plotly
 requests
 python-dotenv
-ibm-watson-machine-learning
