@@ -36,4 +36,4 @@ elif menu == "🧪 Disease Prediction":
 elif menu == "💊 Treatment Plan":
     treatment_plan()
 elif menu == "📊 Health Analytics":
-    health_analytics()
+  health_analytics()
