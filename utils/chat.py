@@ -1,5 +1,26 @@
 import streamlit as st
-from gemini_api import generate_gemini_response
+import os
+import requests
+
+def call_ibm_granite(prompt):
+    api_key = st.secrets("IBM_API_KEY")
+    url = "https://private.us-south.ml.cloud.ibm.com"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+    payload = {
+        "prompt": prompt,
+        "model": "granite-13b-instruct-v2"
+    }
+    try:
+        response = requests.post(url, json=payload, headers=headers)
+        if response.status_code == 200:
+            return response.json().get("response", "No response from model.")
+        else:
+            return f"Error {response.status_code}: {response.text}"
+    except Exception as e:
+        return f"Exception occurred: {e}"
 
 def patient_chat():
     st.markdown(open("templates/patient_chat.md").read(), unsafe_allow_html=True)
